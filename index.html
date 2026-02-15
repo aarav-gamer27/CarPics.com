@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CarPics | Showroom</title>
 
-  <!-- External CSS -->
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Background Glow -->
+
   <div class="main-glow"></div>
 
-  <!-- Navbar -->
+  
   <nav class="navbar">
   <div class="nav-left">
     <div class="logo">CAR<span>PICS</span></div>
 
-    <!-- Desktop links -->
+  
     <ul class="nav-links">
       <li class="active">Home</li>
       <li>Support</li>
@@ -28,19 +29,18 @@
 
   <div class="nav-right">
     <button class="info-btn">More info</button>
-
-    <!-- Mobile menu icon -->
+    
     <div class="menu-toggle" id="menuToggle">☰</div>
   </div>
 </nav>
 
-<!-- Mobile dropdown -->
+
 <div class="mobile-menu" id="mobileMenu">
   <a href="#">Home</a>
   <a href="#">Support</a>
   <a href="#">About</a>
 </div>
-  <!-- Hero Section -->
+
   <header class="hero">
     <p class="now-live">NOW LIVE</p>
 
@@ -62,10 +62,10 @@
     <div class="glow-divider"></div>
   </header>
 
-  <!-- Section -->
+  
   <h2 class="section-label">Select your vehicle</h2>
 
-  <!-- Carousel -->
+
   <div class="carousel">
     <div class="group">
       <div class="card">
@@ -99,7 +99,7 @@
       </div>
     </div>
 
-    <!-- Duplicate group for infinite loop -->
+    
     <div class="group" aria-hidden="true">
       <div class="card">
         <img src="car1.png" alt="Ferrari Enzo" />
@@ -134,9 +134,6 @@
   </div>
 
 <script>
-  /* ===============================
-     RIPPLE EFFECT (unchanged)
-  =============================== */
   function addRipple(e) {
     const btn = e.currentTarget;
     const circle = document.createElement("span");
@@ -158,9 +155,7 @@
     btn.addEventListener("click", addRipple);
   });
 
-  /* ===============================
-     BUTTON ACTIONS
-  =============================== */
+  
   document.querySelector(".btn-primary").addEventListener("click", () => {
     alert("🚗 Description coming soon…");
   });
@@ -175,28 +170,26 @@
     alert("CarPics — Premium Digital Showroom ✨");
   });
 
-  /* ===============================
-     NAVBAR (PC + MOBILE)
-  =============================== */
+  
   const menuToggle = document.getElementById("menuToggle");
   const mobileMenu = document.getElementById("mobileMenu");
   const navLinks = document.querySelectorAll(".nav-links li");
   const mobileLinks = document.querySelectorAll(".mobile-menu a");
 
-  // Toggle mobile menu
+  
   menuToggle.addEventListener("click", () => {
     mobileMenu.style.display =
       mobileMenu.style.display === "flex" ? "none" : "flex";
   });
 
-  // Close mobile menu on link click
+
   mobileLinks.forEach(link => {
     link.addEventListener("click", () => {
       mobileMenu.style.display = "none";
     });
   });
 
-  // Active state for PC nav
+  
   navLinks.forEach(link => {
     link.addEventListener("click", () => {
       navLinks.forEach(l => l.classList.remove("active"));
@@ -204,7 +197,7 @@
     });
   });
 
-  // Safety: reset menu on resize (PC <-> Mobile)
+  
   window.addEventListener("resize", () => {
     if (window.innerWidth > 768) {
       mobileMenu.style.display = "none";
