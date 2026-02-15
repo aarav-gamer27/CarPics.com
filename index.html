@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CarPics | Showroom</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  
+  <div class="main-glow"></div>
+  <nav class="navbar">
+  <div class="nav-left">
+    <div class="logo">CAR<span>PICS</span></div>
+    <ul class="nav-links">
+      <li class="active">Home</li>
+      <li>Support</li>
+      <li>About</li>
+    </ul>
+  </div>
+
+  <div class="nav-right">
+    <button class="info-btn">More info</button>
+
+    <div class="menu-toggle" id="menuToggle">☰</div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="home.html">Home</a>
+  <a href="support.html">Support</a>
+  <a href="about.html">About</a>
+</div>
+  
+  <header class="hero">
+    <p class="now-live">NOW LIVE</p>
+
+    <h1>
+      INTRODUCING <br />
+      <span class="highlight">NEW SUPERCAR</span>
+    </h1>
+
+    <p class="sub-text">
+      A masterpiece of engineering and speed. Designed to dominate the asphalt
+      with a presence that commands attention.
+    </p>
+
+    <div class="hero-btns">
+      <button class="btn-primary">DESCRIPTION</button>
+      <button class="btn-outline">DETAIL</button>
+    </div>
+
+    <div class="glow-divider"></div>
+  </header>
+
+
+  <h2 class="section-label">Select your vehicle</h2>
+
+  
+  <div class="carousel">
+    <div class="group">
+      <div class="card">
+        <img src="car1.png" alt="Ferrari Enzo" />
+        <div class="card-label">FERRARI ENZO</div>
+      </div>
+
+      <div class="card">
+        <img src="car2.png" alt="Mercedes SLS" />
+        <div class="card-label">MERCEDES SLS</div>
+      </div>
+
+      <div class="card active">
+        <img src="car3.png" alt="Lamborghini" />
+        <div class="card-label">LAMBORGHINI</div>
+      </div>
+
+      <div class="card">
+        <img src="car4.png" alt="McLaren P1" />
+        <div class="card-label">MCLAREN P1</div>
+      </div>
+
+      <div class="card">
+        <img src="car5.png" alt="Pagani Zonda" />
+        <div class="card-label">PAGANI ZONDA</div>
+      </div>
+
+      <div class="card">
+        <img src="car6.png" alt="New Car" />
+        <div class="card-label">NEW CAR</div>
+      </div>
+    </div>
+
+    
+    <div class="group" aria-hidden="true">
+      <div class="card">
+        <img src="car1.png" alt="Ferrari Enzo" />
+        <div class="card-label">FERRARI ENZO</div>
+      </div>
+
+      <div class="card">
+        <img src="car2.png" alt="Mercedes SLS" />
+        <div class="card-label">MERCEDES SLS</div>
+      </div>
+
+      <div class="card active">
+        <img src="car3.png" alt="Lamborghini" />
+        <div class="card-label">LAMBORGHINI</div>
+      </div>
+
+      <div class="card">
+        <img src="car4.png" alt="McLaren P1" />
+        <div class="card-label">MCLAREN P1</div>
+      </div>
+
+      <div class="card">
+        <img src="car5.png" alt="Pagani Zonda" />
+        <div class="card-label">PAGANI ZONDA</div>
+      </div>
+
+      <div class="card">
+        <img src="car6.png" alt="New Car" />
+        <div class="card-label">NEW CAR</div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  
+  function addRipple(e) {
+    const btn = e.currentTarget;
+    const circle = document.createElement("span");
+    const diameter = Math.max(btn.clientWidth, btn.clientHeight);
+    const radius = diameter / 2;
+
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${e.clientX - btn.getBoundingClientRect().left - radius}px`;
+    circle.style.top = `${e.clientY - btn.getBoundingClientRect().top - radius}px`;
+    circle.classList.add("ripple");
+
+    const ripple = btn.querySelector(".ripple");
+    if (ripple) ripple.remove();
+
+    btn.appendChild(circle);
+  }
+
+  document.querySelectorAll("button").forEach(btn => {
+    btn.addEventListener("click", addRipple);
+  });
+
+  
+  document.querySelector(".btn-primary").addEventListener("click", () => {
+    alert("🚗 Description coming soon…");
+  });
+
+  document.querySelector(".btn-outline").addEventListener("click", () => {
+    document.querySelector(".section-label").scrollIntoView({
+      behavior: "smooth"
+    });
+  });
+
+  document.querySelector(".info-btn").addEventListener("click", () => {
+    alert("CarPics — Premium Digital Showroom ✨");
+  });
+
+  
+  const menuToggle = document.getElementById("menuToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const navLinks = document.querySelectorAll(".nav-links li");
+  const mobileLinks = document.querySelectorAll(".mobile-menu a");
+
+  
+  menuToggle.addEventListener("click", () => {
+    mobileMenu.style.display =
+      mobileMenu.style.display === "flex" ? "none" : "flex";
+  });
+
+  
+  mobileLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.style.display = "none";
+    });
+  });
+
+  
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.forEach(l => l.classList.remove("active"));
+      link.classList.add("active");
+    });
+  });
+
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      mobileMenu.style.display = "none";
+    }
+  });
+</script>
+</body>
+  </html>
